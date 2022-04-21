@@ -160,6 +160,11 @@ install_Vim_Editor() {
     sudo dnf install vim -y
 }
 
+install_Neovim_Editor() {
+    banner "Installing install_Neovim_Editor"
+    sudo dnf install neovim -y
+}
+
 install_htop() {
     banner "Installing htop utility"
     sudo dnf install -y htop
