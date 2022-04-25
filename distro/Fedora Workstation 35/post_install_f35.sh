@@ -233,3 +233,45 @@ install_OBS_Studio() {
 	# will be installed if RPM fusion repositories are enabled
 	sudo dnf install obs-studio -y
 }
+
+install_MongoDB() {
+    banner "Installing MongoDB"
+    
+    printf "\nUpdating and Upgrading the system"
+    sudo dnf update -y && sudo dnf upgrade -y
+
+    printf "\nGoing inside Downloads Folder..."
+    cd ~/Downloads/
+
+    printf "\nGetting the mongod server for Fedora..."
+    wget 'https://repo.mongodb.org/yum/redhat/8/mongodb-org/5.0/x86_64/RPMS/mongodb-org-server-5.0.7-1.el8.x86_64.rpm'
+
+    printf "\nInstalling the mongod server for Fedora..."
+    sudo dnf localinstall mongodb-org-server-5.0.7-1.el8.x86_64.rpm -y
+
+    sudo systemctl enable mongod -y
+    sudo systemctl start mongod -y
+
+    # If 'mongo' command does not work, restart your system and then in terminal
+    # type the following - 
+    # sudo systemctl enable mongod
+    # sudo systemctl start mongod
+
+    printf "\nGetting the MongoDB Community Shell..."
+    # This will make mongodb run in terminal
+    wget 'https://repo.mongodb.org/yum/redhat/8/mongodb-org/5.0/x86_64/RPMS/mongodb-org-shell-5.0.7-1.el8.x86_64.rpm'
+
+    printf "\nInstalling the MongoDB Community Shell..."
+    sudo dnf localinstall mongodb-org-shell-5.0.7-1.el8.x86_64.rpm -y
+
+}
+
+install_MongoDB_Compass() {
+    banner "Installing MongoDB Compass"
+
+    printf "\nGetting the MongoDB Compass package for Fedora..."
+    wget 'https://downloads.mongodb.com/compass/mongodb-compass-1.31.2.x86_64.rpm'
+
+    printf "\nInstalling MongoDB Compass for Fedora..."
+    sudo dnf localinstall mongodb-compass-1.31.2.x86_64.rpm -y
+}
