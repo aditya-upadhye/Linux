@@ -176,12 +176,6 @@ alias ginit='git init'
 # alias for neofetch
 alias nf='neofetch'
 
-# alias for android studio
-alias studio='/usr/local/android-studio/bin'e
-
-# alias for flutter
-alias flutter=~/Android/flutter/bin/flutter
-
 # alias for python3
 alias py='python3'
 alias python='python3'
@@ -194,26 +188,12 @@ alias sql="sudo mysql -u 'root'"
 
 alias xclipboard='xclip -selection clipboard <'
 
-# src is the place where I store all source code
-alias src='cd ~/src'
-
 # To push files with git using message
 gitpush(){
   gadd && gcommit "$1" && git push
 }
 
-
-# It works for only debain based OS
-debinstall() {
-    sudo apt install $(pwd)/$1
-}
-
 # To update and upgrade Fedora using dnf
 alias dnf='sudo dnf update && sudo dnf upgrade'
 
-export PATH=$PATH":/home/aditya/.local/bin"
-
-#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
-export SDKMAN_DIR="/home/aditya/.sdkman"
-
-[[ -s "/home/aditya/.sdkman/bin/sdkman-init.sh" ]] && source "/home/aditya/.sdkman/bin/sdkman-init.sh"
+export PATH=$PATH":$HOME/.local/bin"
