@@ -248,9 +248,10 @@ install_MongoDB() {
 
     printf "\nInstalling the mongod server for Fedora..."
     sudo dnf localinstall mongodb-org-server-5.0.7-1.el8.x86_64.rpm -y
+    rm mongodb-org-server-5.0.7-1.el8.x86_64.rpm
 
-    sudo systemctl enable mongod -y
-    sudo systemctl start mongod -y
+    sudo systemctl enable mongod 
+    sudo systemctl start mongod 
 
     # If 'mongo' command does not work, restart your system and then in terminal
     # type the following - 
@@ -263,6 +264,7 @@ install_MongoDB() {
 
     printf "\nInstalling the MongoDB Community Shell..."
     sudo dnf localinstall mongodb-org-shell-5.0.7-1.el8.x86_64.rpm -y
+    rm mongodb-org-shell-5.0.7-1.el8.x86_64.rpm
 
 }
 
@@ -274,4 +276,5 @@ install_MongoDB_Compass() {
 
     printf "\nInstalling MongoDB Compass for Fedora..."
     sudo dnf localinstall mongodb-compass-1.31.2.x86_64.rpm -y
+    rm mongodb-compass-1.31.2.x86_64.rpm
 }
